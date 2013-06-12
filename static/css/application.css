@@ -21,6 +21,9 @@ h1, h2, h3, h4 {
   font-family: "Gilda Display", serif;
 }
 
+iframe {
+    border:none;
+}
 
 .nav-pills > li a {
   border: 1px solid #ccc;
