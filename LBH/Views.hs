@@ -456,8 +456,9 @@ showPost muser post = do
       P.writeHtml wopts $
        let md = P.readMarkdown ropts (T.unpack . crlf2lf $ postBody post)
        in extractActieCodeBlocks md
-  let path = (lbhUrl ++ "/" ++ (show $ postId post) ++ "/comments")
-  iframe ! src (toValue path) ! A.style "overflow: scroll;" ! width "1000" ! height "500" $ ""
+  let commentsUrl = "http://www.comments.learnbyhacking.tk/"
+  let path = (commentsUrl ++ (show $ postId post) ++ "/comments")
+  iframe ! id "comments" ! src (toValue path)
      where ropts = P.def { P.readerExtensions     = P.githubMarkdownExtensions }
            wopts = P.def { P.writerHighlight      = True
                          , P.writerHighlightStyle = P.kate
