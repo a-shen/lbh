@@ -458,7 +458,7 @@ showPost muser post = do
        in extractActieCodeBlocks md
   let commentsUrl = "http://www.comments.learnbyhacking.tk/"
   let path = (commentsUrl ++ (show $ postId post) ++ "/comments")
-  iframe ! id "comments" ! src (toValue path)
+  iframe ! id "comments" ! src (toValue path) $ ""
      where ropts = P.def { P.readerExtensions     = P.githubMarkdownExtensions }
            wopts = P.def { P.writerHighlight      = True
                          , P.writerHighlightStyle = P.kate
